@@ -1,3 +1,4 @@
+from typing import List
 from pydantic import BaseModel
 
 
@@ -9,6 +10,31 @@ class Todo(BaseModel):
         schema_extra = {
             "example": {
                 "id": 1,
-                "item": "Example schema!"
+                "item": "Купить молоко"
+            }
+        }
+
+
+class TodoItem(BaseModel):
+    item: str
+
+    class Config:
+        schema_extra = {
+            "example": {
+                "item": "Прочитать следующую главу книги"
+            }
+        }
+
+
+class TodoItems(BaseModel):
+    todos: List[TodoItem]
+
+    class Config:
+        schema_extra = {
+            "example": {
+                "todos": [
+                    {"item": "Пример задачи 1"},
+                    {"item": "Пример задачи 2"}
+                ]
             }
         }

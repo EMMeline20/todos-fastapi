@@ -6,7 +6,7 @@ app = FastAPI()
 
 @app.get("/")
 async def welcome() -> dict:
-    return {"message": "Hello World"}
+    return {"message": "Привет! Это приложение для задач."}
 
 
 app.include_router(todo_router)
